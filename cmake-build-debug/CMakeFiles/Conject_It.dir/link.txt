@@ -1,0 +1,1 @@
+/usr/bin/cc -g  -Wl,--enable-auto-import CMakeFiles/Conject_It.dir/main.c.o  -o Conject_It.exe -Wl,--out-implib,libConject_It.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
