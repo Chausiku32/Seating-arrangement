@@ -1,93 +1,69 @@
-#include <stdio.h>
-#include <math.h>
-
-int total, num[10];
-int main(){
-    int x, newNumber;
-    scanf("%d \n", &total); //take in input from user for total numbers
-
-    for(x = 0; x < total; x++){
-        scanf("%d \n", &num[x]); //take in input from user for total numbers
+#include<stdio.h>
+void seat(int n)
+{
+    int i,seat,l;
+    for(i=0;i<n;i++)
+{
+    int a=6,b=-1;
+    if(n>=(12*i+1)&&n<((12*i+1)+6))
+    {
+    for(l=(12*i)+1;l<((12*i+1)+6);l++)
+    {
+            a-=1;
+                if(l==n)
+            {
+                  seat=n+(2*a + 1);
+                  printf("%d",seat);
+                    break;
+            }
     }
-
-    //getting the seat number facing the inputted number
-    for(x = 0; x < total; x++){
-        if(num[x] % 6 == 0){
-            if((num[x]/6)%2 == 0){
-                //seat number is N[x]+1
-                newNumber = num[x] - 11;
-                printf("%d ",newNumber);
-                printf("WS \n");
-            }
-            else{
-                newNumber = num[x] + 1;
-                printf("%d ",newNumber);
-                printf("WS \n");
-            }
-        }
-        else if(num[x] % 6 == 1){
-            if((num[x]/6)%2 == 0 ){
-                //seat number is N[x]+1
-                newNumber = num[x] + 11;
-                printf("%d ",newNumber);
-                printf("WS \n");
-            }
-            else{
-                //seat number is N[x]+1
-                newNumber = num[x] - 1;
-                printf("%d ",newNumber);
-                printf("WS \n");
-            }
-        }
-        else if(num[x] % 6 == 2){
-            if((num[x]/6)%2 == 0){
-                //seat number is N[x]+1
-                newNumber = num[x] + 9;
-                printf("%d ",newNumber);
-                printf("MS \n");
-            }
-            else{
-                //seat number is N[x]+1
-                newNumber = num[x] - 3;
-                printf("%d ",newNumber);
-                printf("MS \n");
-            }
-        }
-        else if(num[x] % 6 == 3){
-            if((num[x]/6)%2 == 0){
-                newNumber = num[x] + 7;
-                printf("%d ",newNumber);
-                printf("AS \n");
-            }
-            else{
-                newNumber = num[x] - 5;
-                printf("%d ",newNumber);
-                printf("AS \n");
-            }
-        }
-        else if(num[x] % 6 == 4){
-            if((num[x]/6)%2 == 0){
-                newNumber = num[x] + 5;
-                printf("%d ",newNumber);
-                printf("AS \n");
-            }
-            else{
-                newNumber = num[x] - 7;
-                printf("%d ",newNumber);
-                printf("AS \n");
-            }
-        }
-        else if(num[x] % 6 == 5){
-            if((num[x]/6)%2 == 0){
-                newNumber = num[x] + 3;
-                printf("%d ", newNumber);
-                printf("MS \n");
-            }
-            else{
-                newNumber = num[x] - 9;
-                printf("%d ",newNumber);
-                printf("MS \n");
-            }
+    }
+    else if(n>=(6*(2*i+1)+1)&&n<(6*(2*i+1)+7))
+    {
+        for(l=(6*(2*i+1)+1);l<(6*(2*i+1)+7);l++)
+        {
+          b+=1;
+        if(l==n)
+           {
+                 seat=n-(2*b+1);
+                  printf("%d",seat);
+                  break;
+           }
         }
     }
+}
+for(i=0;i<18;i++)
+{
+     if(n==((6*i)+1)||n==((6*i+1)+5))
+                   {
+                        printf(" WS\n");
+                        break;
+                   }
+                  else if(n==((6*i)+2)||n==((6*i+1)+4))
+                          {
+                              printf(" MS\n");
+                              break;
+                          }
+                          else if(n==((6*i)+3)||n==((6*i)+4))
+                           {
+                                printf(" AS\n");
+                                break;
+                           }
+}
+}
+void main()
+{
+    int t,i,n;
+    scanf("%d",&t);
+	if(t>=1&&t<=100000)
+	{
+		for(i=0;i<t;i++)
+    {
+    scanf("%d",&n);
+	if(n>=1&&n<=108)
+    seat(n);
+	continue;
+    }
+	}
+    
 }
